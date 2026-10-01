@@ -2,37 +2,37 @@ from django.db import models
 
 
 class Product(models.Model):
-    name=models.CharField(max_length=100, verbose_name='Наименование')
-    description=
-    image=
-    category=
-    price_per_purchase=
-    creation_date=
-    last_modified_date=
 
-
-
-
-
-
-    first_name =
-    last_name = models.CharField(max_length=150, verbose_name='Фамилия')
+    name = models.CharField(max_length=100, verbose_name='Наименование', help_text='Введите наименование товара')
+    image = models.ImageField(upload_to='catalog/images', verbose_name='Изображение', help_text='Загрузите картинку')
+    category = models.CharField(max_length=100, verbose_name='Категория', help_text='Введите категорию товара')
+    price_per_purchase = models.DecimalField(max_digits=5, decimal_places=2, help_text="Укажите цену за одну покупку")
+    created_at = models.DateField(verbose_name='Дата изготовления', help_text='Введите дату изготовления товара')
+    updated_at = models.DateField(verbose_name='Дата последнего изменения',
+                                          help_text='Введите дату последнего изменения товара')
+    description = models.TextField(verbose_name="Описание товара", blank=True, null=True,
+                                   help_text="Введите подробное описание товара.")
 
     def __str__(self):
-        return f'{self.first_name} {self.last_name}'
+        return f'{self.name} {self.price_per_purchase}'
 
     class Meta:
-        verbose_name = 'студент'
-        verbose_name_plural = 'студенты'
-        ordering = ['last_name']
+        verbose_name = 'товар'
+        verbose_name_plural = 'товары'
+        ordering = ['name','price_per_purchase']
 
 
-"""
-наименование,
-описание,
-изображение,
-категория,
-цена за покупку,
-дата создания,
-дата последнего изменения.
-"""
+class Category(models.Model):
+
+    name = models.CharField(max_length=100, verbose_name='Наименование', help_text='Введите наименование категории')
+    description = models.TextField(verbose_name="Характеристика категории", blank=True, null=True,
+                                   help_text="Опишите суть категории товаров")
+
+    def __str__(self):
+        return f'{self.name}'
+
+    class Meta:
+        verbose_name = 'категория'
+        verbose_name_plural = 'категории'
+
+

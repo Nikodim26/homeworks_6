@@ -6,7 +6,7 @@
         "name": "Планшет1",
         "image": "",
         "category": 3,
-        "price": "600.00",
+        "price": "500.00",
         "created_at": "2000-05-10",
         "updated_at": "2010-05-10",
         "description": "Хороший планшет"
@@ -14,15 +14,28 @@
 },
 {
     "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+        "name": "Планшет2",
+        "image": "",
+        "category": 3,
+        "price": "400.00",
+        "created_at": "2010-05-10",
+        "updated_at": "2020-05-10",
+        "description": "Хороший планшет"
+    }
+},
+{
+    "model": "catalog.product",
     "pk": 3,
     "fields": {
-        "name": "Смартфон",
+        "name": "Планшет1",
         "image": "",
         "category": 1,
         "price": "300.00",
-        "created_at": "2015-05-10",
+        "created_at": "2020-05-10",
         "updated_at": "2026-05-10",
-        "description": "Хороший телефон"
+        "description": "Хороший планшет"
     }
 }
 ]

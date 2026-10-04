@@ -1,0 +1,26 @@
+[
+{
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+        "name": "Мобильные телефоны",
+        "description": "Хорошие телефоны"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Стационарные телефоны",
+        "description": "Хорошие телефоны"
+    }
+},
+{
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Планшеты",
+        "description": "Хорошие планшеты"
+    }
+}
+]

@@ -6,11 +6,11 @@ from django.db import connection
 class Command(BaseCommand):
     help = 'Добавление данных в базу'
 
-    with connection.cursor() as cursor:
-        cursor.execute("TRUNCATE TABLE catalog_product RESTART IDENTITY CASCADE;")
-        cursor.execute("TRUNCATE TABLE catalog_category RESTART IDENTITY CASCADE;")
-
     def handle(self, *args, **kwargs):
+
+        with connection.cursor() as cursor:
+            cursor.execute("TRUNCATE TABLE catalog_product RESTART IDENTITY CASCADE;")
+            cursor.execute("TRUNCATE TABLE catalog_category RESTART IDENTITY CASCADE;")
 
         categories = [
             {'name': 'Мобильные телефоны', 'description': 'Хорошие телефоны'},

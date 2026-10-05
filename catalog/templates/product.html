@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="pricing-header px-3 py-3 pt-md-3 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">SkyStore</h1>
+<div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
+    <h1 class="display-5">SkyStore</h1>
     <p class="lead">Категория: {{product.category}}</p>
     <p class="lead">Предлагаемый продукт: {{product.name}}</p>
 </div>
@@ -10,15 +10,15 @@
 
 <div class="container mt-1">
     <div class="row justify-content-center">
-        <div class="col-md-6 col-lg-4 text-center">
-            <h3 class="text-dark mb-3">100$</h3>
+        <div class="col-md-6 col-lg-5 text-center">
+            <h3 class="text-dark mb-1">{{product.price}}$</h3>
 
             <div class="mb-4">
                 <img
                 src="/images/catalog/images/FabFilter Pro‑C 2.png" alt="Иллюстрация товара"
-                class="rounded img-with-border" width="334" height="234">
+                class="rounded img-with-border" width="324" height="224">
             </div>
-
+            <p> {{product.description|truncatechars:100}}</p>
             <a href="#" class="btn btn-outline-primary w-50 rounded-sm">Купить</a>
         </div>
     </div>

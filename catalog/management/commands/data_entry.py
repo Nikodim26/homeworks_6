@@ -27,36 +27,36 @@ class Command(BaseCommand):
 
         products = [
             {'name': 'Yoast SEO',
-             'image': 'catalog/images/Yoast SEO.png',
+             'image': 'catalog/media/Yoast SEO.png',
              'description': 'Помогает оптимизировать страницы под поисковые системы: подсказывает, как улучшить'
                             ' заголовки, метаописания, плотность ключевых слов.',
              'category': ctg_items[0], 'price': 500.00,
              'created_at': '2000-05-10', 'updated_at': '2010-05-10'},
             {'name': 'WooCommerce',
-             'image': 'catalog/images/WooCommerce.png',
+             'image': 'catalog/media/WooCommerce.png',
              'description': 'Превращает WordPress‑сайт в полноценный интернет‑магазин: добавляет корзину, каталог '
                             'товаров, способы оплаты и доставки.',
              'category': ctg_items[0], 'price': 400.00,
              'created_at': '2010-05-10', 'updated_at': '2020-05-10'},
             {'name': 'uBlock Origin',
-             'image': 'catalog/images/uBlock Origin.png',
+             'image': 'catalog/media/uBlock Origin.png',
              'description': 'Лёгкий и эффективный блокировщик рекламы и трекеров: убирает всплывающие окна, баннеры,'
                             ' скрипты слежения.',
              'category': ctg_items[1], 'price': 300.00,
              'created_at': '2020-05-10', 'updated_at': '2026-05-10'},
             {'name': 'LanguageTool',
-             'image': 'catalog/images/LanguageTool.png',
+             'image': 'catalog/media/LanguageTool.png',
              'description': 'Проверяет орфографию, грамматику и стиль текста прямо в браузере: подсвечивает ошибки в'
                             ' формах на сайтах, в почте, в редакторах.',
              'category': ctg_items[1], 'price': 300.00,
              'created_at': '2020-05-10', 'updated_at': '2026-05-10'},
             {'name': 'FabFilter Pro‑C 2',
-             'image': 'catalog/images/FabFilter Pro‑C 2.png',
+             'image': 'catalog/media/FabFilter Pro‑C 2.png',
              'description': 'Выравнивает динамику звука: делает тихие части громче, а громкие — не слишком резкими.'
                             ' Подходит для вокала, ударных, баса.',
              'category': ctg_items[2], 'price': 300.00, 'created_at': '2020-05-10', 'updated_at': '2026-05-10'},
             {'name': 'Valhalla Vintage Verb',
-             'image': 'catalog/images/Valhalla Vintage Verb.png',
+             'image': 'catalog/media/Valhalla Vintage Verb.png',
              'description': 'Создаёт эффект пространства: имитирует звучание в комнате, зале или на стадионе.'
                             ' Часто используют, чтобы «посадить» вокал в микс.',
              'category': ctg_items[2], 'price': 300.00, 'created_at': '2020-05-10', 'updated_at': '2026-05-10'}

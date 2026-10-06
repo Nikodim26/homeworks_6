@@ -29,7 +29,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
                 ('name', models.CharField(help_text='Введите наименование товара', max_length=100, verbose_name='Наименование')),
-                ('image', models.ImageField(help_text='Загрузите картинку', upload_to='catalog/images', verbose_name='Изображение')),
+                ('image', models.ImageField(help_text='Загрузите картинку', upload_to='catalog/media', verbose_name='Изображение')),
                 ('price_per_purchase', models.DecimalField(decimal_places=2, help_text='Укажите цену за одну покупку', max_digits=5)),
                 ('created_at', models.DateField(help_text='Введите дату изготовления товара', verbose_name='Дата изготовления')),
                 ('updated_at', models.DateField(help_text='Введите дату последнего изменения товара', verbose_name='Дата последнего изменения')),

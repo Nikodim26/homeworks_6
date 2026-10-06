@@ -3,7 +3,7 @@ from django.db import models
 
 class Product(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование', help_text='Введите наименование товара')
-    image = models.ImageField(upload_to='catalog/images', verbose_name='Изображение', help_text='Загрузите картинку',
+    image = models.ImageField(upload_to='catalog/media', verbose_name='Изображение', help_text='Загрузите картинку',
                               blank=True, null=True)
     category = models.ForeignKey(to='Category', verbose_name='Категория', help_text='Введите категорию товара',
                                  on_delete=models.CASCADE)

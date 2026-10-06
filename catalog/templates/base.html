@@ -1,5 +1,5 @@
-{% load static %}}
 <!doctype html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -17,7 +17,6 @@
 </div>
 
 {% block content %}{% endblock %}
-{% include 'footer.html' %}
-<script src="/static/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>

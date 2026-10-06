@@ -15,13 +15,14 @@
 
             <div class="mb-4">
                 <img src="{{ product.image | media_filter }}" alt="Иллюстрация товара"
-                class="rounded img-with-border" width="334" height="240">
+                class="rounded img-with-border" width="324" height="224">
             </div>
             <p> {{product.description|truncatechars:100}}</p>
             <a href="#" class="btn btn-outline-primary w-50 rounded-sm">Купить</a>
         </div>
     </div>
 
+    {% include 'footer.html' %}
 </div>
 
 {% endblock %}

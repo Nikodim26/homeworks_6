@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-
+{% load my_tags %}
 {% block content %}
 <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
     <h1 class="display-5">SkyStore</h1>
@@ -15,7 +15,7 @@
 
             <div class="mb-4">
                 <img
-                src='/media/catalog/media/Yoast SEO.png' alt="Иллюстрация товара"
+                src='{{product.image|media_filter}}' alt="Иллюстрация товара"
                 class="rounded img-with-border" width="324" height="224">
             </div>
             <p> {{product.description|truncatechars:100}}</p>

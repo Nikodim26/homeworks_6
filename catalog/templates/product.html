@@ -14,8 +14,7 @@
             <h3 class="text-dark mb-1">{{product.price}}$</h3>
 
             <div class="mb-4">
-                <img
-                src='{{product.image|media_filter}}' alt="Иллюстрация товара"
+                <img src="{{ product.image | media_filter }}" alt="Иллюстрация товара"
                 class="rounded img-with-border" width="324" height="224">
             </div>
             <p> {{product.description|truncatechars:100}}</p>

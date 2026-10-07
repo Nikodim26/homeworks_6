@@ -18,4 +18,6 @@ def product_item(request, pk):
 
 
 def catalogue(request):
-    return render(request, 'catalogue.html')
+    products = Product.objects.all()
+    context = {'products': products}
+    return render(request, 'catalogue.html', context=context)

@@ -8,8 +8,11 @@ app_name = CatalogConfig.name
 
 urlpatterns = [
     path('', RedirectView.as_view(url='/home/', permanent=False)),
+
     path('home/', views.home, name='home'),
+
     path('contacts/', views.contacts, name='contacts'),
+
     path('product/<int:pk>/', views.product_item, name='product'),
     path('catalogue/', views.catalogue, name='catalogue'),
 

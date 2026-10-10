@@ -8,10 +8,11 @@
             <div class="col-md-6 col-lg-4 text-center">
                 <h6 class="text-dark mb-1">{{entry.name}}</h6>
                 <div class="mb-3">
-                    <img src="{{ entry.image | media_filter }}" alt="Превью (изображение)"
+                     <img src="{{ entry.preview | media_filter }}" alt="Превью (изображение)"
                     class="rounded img-with-border" width="320" height="200">
+
                 </div>
-                <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{entry.description | truncatechars:50}}</p>
+                <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{entry.content | truncatechars:70}}</p>
                 <a href="/entry/{{entry.pk}}/" class="btn btn-outline-primary w-50 rounded-sm" style="margin-top: 20px;">Подробности</a>
             </div>
         {% endfor %}

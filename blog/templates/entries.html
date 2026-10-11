@@ -9,13 +9,14 @@
 
         {% for entry in entries %}
         <div class="col-lg-3 text-center">
-            <h6 class="text-dark mb-1">{{entry.name}}</h6>
+            <h6 class="text-dark mb-3">{{entry.name}}</h6>
             <div class="mb-3">
                 <img src="{{ entry.preview | media_filter }}" alt="Превью (изображение)"
                      class="rounded img-with-border" width="320" height="200">
             </div>
 
-            <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{entry.content | truncatechars:60}}</p>
+            <p style="max-width: 350px; margin: 0 auto; text-align: justify;">
+                {{entry.content | truncatechars:60}}</p>
             <a href="/entry/{{entry.pk}}/" class="btn btn-outline-primary rounded-sm"
                style="margin-top: 20px;">Подробности</a>
         </div>

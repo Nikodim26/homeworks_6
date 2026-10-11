@@ -21,6 +21,8 @@ class EntriesListView(ListView):
     template_name = "entries.html"
     context_object_name = "entries"
 
+    def get_queryset(self):
+        return BlogEntry.objects.filter(publication=True)
 
 # CUD
 

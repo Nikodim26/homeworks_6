@@ -9,24 +9,34 @@ class EntryDetailView(DetailView):
     template_name = 'entry.html'
     context_object_name = 'entry'
 
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+        self.object.number_of_views += 1
+        self.object.save()
+        return self.object
+
+
 class EntriesListView(ListView):
     model = BlogEntry
     template_name = "entries.html"
     context_object_name = "entries"
 
+
 # CUD
 
 class EntryCreateView(CreateView):
     model = BlogEntry
-    fields = ['name', 'content','preview','created_at']
+    fields = ['name', 'content', 'preview', 'created_at']
     template_name = 'create_form.html'
     success_url = reverse_lazy("blog:entries")
 
+
 class EntryUpdateView(UpdateView):
     model = BlogEntry
-    fields = ['name', 'content','preview','created_at']
+    fields = ['name', 'content', 'preview', 'created_at']
     template_name = 'create_form.html'
     success_url = reverse_lazy("blog:entries")
+
 
 class EntryDeleteView(DeleteView):
     model = BlogEntry

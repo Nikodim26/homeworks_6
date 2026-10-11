@@ -1,5 +1,4 @@
 from django.core.management.base import BaseCommand
-
 from blog.models import BlogEntry
 
 
@@ -7,7 +6,6 @@ class Command(BaseCommand):
     help = 'Добавление данных в базу'
 
     def handle(self, *args, **kwargs):
-
         BlogEntry.objects.all().delete()
 
         entrys = [

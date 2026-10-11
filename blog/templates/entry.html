@@ -4,23 +4,23 @@
 <div class="pricing-header px-3 py-3 pt-md-1 pb-md-1 mx-auto text-center">
     <h1 class="display-5">Запись</h1>
     <div class="lh-sm mb-2">
-        <p class="lead mb-2">
-            Тема: <span class="fw-bold text-primary fs-5">{{entry.name}}</span>
-        </p>
-        <p class="mb-0">Создана: {{entry.created_at}}</p>
+        <p class="lead mb-2"><span class="fw-bold text-primary fs-5">{{entry.name}}</span></p>
+        <p>Создана: {{entry.created_at}}</p>
+        <p>{{entry}}</p>
     </div>
 </div>
-
 
 <div class="container mt-1">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-5 text-center">
 
             <div class="mb-4">
-                <img src="{{ entry.preview | media_filter }}" alt="Превью (изображение)"
+                <img src="{{entry.preview|media_filter}}" alt="Превью (изображение)"
                 class="rounded img-with-border" width="350" height="250">
             </div>
             <p style="text-align: justify;"> {{entry.content}}</p>
+            <a class="p-2 btn btn-outline-warning" href='edit/'>Изменить</a>
+            <a class="p-2 btn btn-outline-danger" href='delete/'>Удалить</a>
         </div>
     </div>
 </div>

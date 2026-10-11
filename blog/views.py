@@ -1,16 +1,34 @@
-from django.views.generic import ListView, DetailView
+from django.urls import reverse_lazy
+from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 
 from blog.models import BlogEntry
 
 
-class EntryDetail(DetailView):
+class EntryDetailView(DetailView):
     model = BlogEntry
     template_name = 'entry.html'
     context_object_name = 'entry'
 
-class EntrysView(ListView):
+class EntriesListView(ListView):
     model = BlogEntry
-    template_name = 'entrys.html'
-    context_object_name = 'entrys'
+    template_name = "entries.html"
+    context_object_name = "entries"
 
-# CRUD
+# CUD
+
+class EntryCreateView(CreateView):
+    model = BlogEntry
+    fields = ['name', 'content','preview','created_at']
+    template_name = 'create_form.html'
+    success_url = reverse_lazy("blog:entries")
+
+class EntryUpdateView(UpdateView):
+    model = BlogEntry
+    fields = ['name', 'content','preview','created_at']
+    template_name = 'create_form.html'
+    success_url = reverse_lazy("blog:entries")
+
+class EntryDeleteView(DeleteView):
+    model = BlogEntry
+    template_name = 'delete_form.html'
+    success_url = reverse_lazy("blog:entries")

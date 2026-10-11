@@ -4,9 +4,11 @@
 {% block content %}
 
 <div class="container">
+    <h2 class="text-info mb-4 text-center">Записи блога</h2>
     <div class="row g-5">
-        {% for entry in entrys %}
-        <div class="col-lg-4 text-center">
+
+        {% for entry in entries %}
+        <div class="col-lg-3 text-center">
             <h6 class="text-dark mb-1">{{entry.name}}</h6>
             <div class="mb-3">
                 <img src="{{ entry.preview | media_filter }}" alt="Превью (изображение)"
@@ -15,11 +17,7 @@
 
             <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{entry.content | truncatechars:60}}</p>
             <a href="/entry/{{entry.pk}}/" class="btn btn-outline-primary rounded-sm"
-               style="margin-top: 20px;">Подробно</a>
-            <a href="/entry/{{entry.pk}}/" class="btn btn-outline-warning rounded-sm"
-               style="margin-top: 20px;">Изменить</a>
-            <a href="/entry/{{entry.pk}}/" class="btn btn-outline-danger rounded-sm"
-               style="margin-top: 20px;">Удалить</a>
+               style="margin-top: 20px;">Подробности</a>
         </div>
         {% endfor %}
 

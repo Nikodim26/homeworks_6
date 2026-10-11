@@ -28,7 +28,7 @@ class EntriesListView(ListView):
 
 class EntryCreateView(CreateView):
     model = BlogEntry
-    fields = ['name', 'content', 'preview', 'created_at']
+    fields = ['name', 'content', 'preview', 'created_at', 'publication']
     template_name = 'create_form.html'
     success_url = reverse_lazy("blog:entries")
 
@@ -38,6 +38,9 @@ class EntryUpdateView(UpdateView):
     fields = ['name', 'content', 'preview', 'created_at']
     template_name = 'create_form.html'
     success_url = reverse_lazy("blog:entries")
+
+    def get_success_url(self):
+        return self.object.get_absolute_url()
 
 
 class EntryDeleteView(DeleteView):

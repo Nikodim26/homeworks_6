@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class BlogEntry(models.Model):
@@ -7,12 +8,15 @@ class BlogEntry(models.Model):
     preview = models.ImageField(upload_to='blog/image', verbose_name='Превью записи', blank=True, null=True)
     created_at = models.DateField(verbose_name='Дата создания записи')
 
-    publication = models.BooleanField(default=True, verbose_name='Опубликовано')
+    publication = models.BooleanField(default=True, verbose_name='Опубликовать')
     number_of_views = models.PositiveIntegerField(default=0, verbose_name='Количество просмотров')
 
 
     def __str__(self):
         return f'Просмотрено {self.number_of_views} раз{end(self.number_of_views)}.'
+
+    def get_absolute_url(self):
+        return reverse('blog:entry', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'запись'

@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
-{% load my_tags %}
+{% load catalog_tags %}
 
 {% block content %}
 <div class="container">
-    <div class="row g-5">
+    <h3 class="text-info mb-3 text-center">Програмные продукты</h3>
+    <div class="row g-4">
         {% for product in products %}
-            <div class="col-md-6 col-lg-4 text-center">
+            <div class="col-md-6 col-lg-3 text-center">
                 <h6 class="text-dark mb-1">{{product.name}}</h6>
                 <h6 class="text-dark mb-1">{{product.price}}$</h6>
                 <div class="mb-3">

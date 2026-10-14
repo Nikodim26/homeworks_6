@@ -1,0 +1,21 @@
+{% extends 'blog_base.html' %}
+{% load blog_tags %}
+{% block content %}
+
+<div class="container text-left">
+    <h2>Запись блога</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Сохранить</button>
+
+        {% if entry.pk %}
+            <a href="/entry/{{ entry.pk }}/" class="btn btn-secondary">Отмена</a>
+        {% else %}
+            <a href="/entries/" class="btn btn-secondary">Отмена</a>
+        {% endif %}
+
+    </form>
+</div>
+
+{% endblock %}

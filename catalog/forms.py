@@ -18,8 +18,6 @@ class ProductForm(forms.ModelForm):
             'class': 'form-control',
         })
 
-
-
         self.fields['category'].widget.attrs.update({
             'class': 'form-control',
         })

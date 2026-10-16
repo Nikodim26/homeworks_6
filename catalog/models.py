@@ -1,21 +1,21 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Наименование', help_text='Введите наименование товара')
-    image = models.ImageField(upload_to='catalog/image', verbose_name='Изображение', help_text='Загрузите картинку',
-                              blank=True, null=True)
-    category = models.ForeignKey(to='Category', verbose_name='Категория', help_text='Введите категорию товара',
-                                 on_delete=models.CASCADE)
-    price = models.DecimalField(max_digits=5, decimal_places=2, help_text="Укажите цену за одну покупку")
-    created_at = models.DateField(verbose_name='Дата изготовления', help_text='Введите дату изготовления товара')
-    updated_at = models.DateField(verbose_name='Дата последнего изменения',
-                                  help_text='Введите дату последнего изменения товара')
-    description = models.TextField(verbose_name="Описание товара", blank=True, null=True,
-                                   help_text="Введите подробное описание товара.")
+    name = models.CharField(max_length=100, verbose_name='Наименование')
+    image = models.ImageField(upload_to='catalog/image', verbose_name='Изображение', blank=True, null=True)
+    category = models.ForeignKey(to='Category', verbose_name='Категория', on_delete=models.CASCADE)
+    price = models.DecimalField(max_digits=5, decimal_places=2)
+    created_at = models.DateField(verbose_name='Дата создания')
+    updated_at = models.DateField(verbose_name='Дата последнего изменения')
+    description = models.TextField(verbose_name="Описание продукта", blank=True, null=True)
 
     def __str__(self):
         return f'{self.name} {self.price}'
+
+    def get_absolute_url(self):
+        return reverse('catalog:product', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'товар'
@@ -24,9 +24,9 @@ class Product(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, verbose_name='Наименование', help_text='Введите наименование категории')
-    description = models.TextField(verbose_name="Характеристика категории", blank=True, null=True,
-                                   help_text="Опишите суть категории товаров")
+    name = models.CharField(max_length=100, verbose_name='Наименование')
+    description = models.TextField(verbose_name="Характеристика категории", blank=True, null=True
+                                   )
 
     def __str__(self):
         return f'{self.name}'

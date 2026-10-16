@@ -7,7 +7,7 @@ from blog.views import EntryDetailView, EntriesListView, EntryCreateView, EntryU
 app_name = BlogConfig.name
 
 urlpatterns = [
-    path('', RedirectView.as_view(pattern_name='blog:entries', permanent=False), name='root'),
+    # path('', RedirectView.as_view(pattern_name='blog:entries', permanent=False), name='root'),
     path('entries/', EntriesListView.as_view(), name='entries'),
     path('entry/<int:pk>/', EntryDetailView.as_view(), name='entry'),
 

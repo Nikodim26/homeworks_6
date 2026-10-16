@@ -10,35 +10,35 @@ class ProductForm(forms.ModelForm):
         super(ProductForm, self).__init__(*args, **kwargs)
 
         self.fields['name'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-primary border-2',
             'placeholder': 'Введите название продукта'
         })
 
         self.fields['image'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-info',
         })
 
         self.fields['category'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-select border border-info  rounded-pill',
         })
 
         self.fields['price'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-info',
             'placeholder': '0.00 $'
         })
 
         self.fields['created_at'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-info',
             'placeholder': f'{datetime.now().date()}'
         })
 
         self.fields['updated_at'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-info',
             'placeholder': f'{datetime.now().date()}'
         })
 
         self.fields['description'].widget.attrs.update({
-            'class': 'form-control',
+            'class': 'form-control border border-warning bg-success p-2 text-dark bg-opacity-25',
             'placeholder': 'Введите описание продукта'
         })
 

@@ -1,3 +1,12 @@
-from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import CreateView
 
-# Create your views here.
+from users.forms import UserLoginForm
+from users.models import User
+
+
+class ProductCreateView(CreateView):
+    model = User
+    form_class = UserLoginForm
+    template_name = 'catalog_create_update_form.html'
+    success_url = reverse_lazy("blog:entries")

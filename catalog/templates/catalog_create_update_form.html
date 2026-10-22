@@ -2,8 +2,8 @@
 {% load catalog_tags %}
 {% block content %}
 
-<div class="container text-left">
-    <h2>Программный продукт</h2>
+<div class="container text-left col-lg-4">
+    <h2 class="text-center">Программный продукт</h2>
     <form method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {{ form.as_p }}

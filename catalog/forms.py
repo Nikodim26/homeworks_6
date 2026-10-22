@@ -39,7 +39,8 @@ class ProductForm(forms.ModelForm):
 
         self.fields['description'].widget.attrs.update({
             'class': 'form-control border border-warning bg-success p-2 text-dark bg-opacity-25',
-            'placeholder': 'Введите описание продукта'
+            'placeholder': 'Опишите продукт',
+            'style': 'height: 150px;'
         })
 
     class Meta:

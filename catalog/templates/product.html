@@ -25,8 +25,8 @@
                 class="rounded img-with-border" width="350" height="246">
             </div>
             <p> {{product.description}}</p>
-            <a class="p-2 btn btn-outline-warning btn-sm" href='edit/'>Изменить</a>
-            <a class="p-2 btn btn-outline-danger btn-sm" href='delete/'>Удалить</a>
+            <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'catalog:product_edit' pk=product.pk %}">Изменить</a>
+            <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'catalog:product_delete' pk=product.pk %}">Удалить</a>
         </div>
     </div>
 </div>

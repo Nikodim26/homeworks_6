@@ -6,6 +6,7 @@ from users.models import User
 
 
 class UserCreateView(CreateView):
+
     model = User
     form_class = UserRegisterForm
     template_name = 'login_register.html'

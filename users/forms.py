@@ -9,8 +9,8 @@ class UserLoginForm(AuthenticationForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['password'].label = 'Пароль'
-        self.fields['password'].widget.attrs.update({'class': 'form-control border border-primary',})
-        self.fields['username'].widget.attrs.update({'class': 'form-control border border-primary',})
+        self.fields['password'].widget.attrs.update({'class': 'form-control border border-primary', })
+        self.fields['username'].widget.attrs.update({'class': 'form-control border border-primary', })
 
 
 class UserRegisterForm(UserCreationForm):
@@ -27,9 +27,7 @@ class UserRegisterForm(UserCreationForm):
         self.initial['phone_number'] = '+7(911)835 59 19'
         self.initial['country'] = 'Россия'
         for fild in ['email', 'password1', 'password2', 'avatar', 'phone_number', 'country']:
-            self.fields[fild].widget.attrs.update({
-                'class': 'form-control border border-primary',
-            })
+            self.fields[fild].widget.attrs.update({'class': 'form-control border border-primary', })
 
     class Meta(UserCreationForm.Meta):
         model = User

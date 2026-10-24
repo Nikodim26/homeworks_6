@@ -1,7 +1,5 @@
 from pathlib import Path
 import os
-
-from django.conf.global_settings import AUTH_USER_MODEL
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -22,7 +20,6 @@ INSTALLED_APPS = [
     'catalog',
     'blog',
     'users',
-
 
 ]
 
@@ -81,14 +78,12 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 USE_TZ = True
-
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
@@ -102,4 +97,8 @@ MAILERS = {
     },
 }
 
-AUTH_USER_MODEL='users.User'
+AUTH_USER_MODEL = 'users.User'
+LOGIN_REDIRECT_URL = '/home/'
+LOGOUT_REDIRECT_URL = '/'
+
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

@@ -6,16 +6,17 @@
     <h3 class="text-info mb-3 text-center">Програмные продукты</h3>
     <div class="row g-4">
         {% for product in products %}
-            <div class="col-md-6 col-lg-3 text-center">
-                <h6 class="text-dark mb-1">{{product.name}}</h6>
-                <h6 class="text-dark mb-1">{{product.price}}$</h6>
-                <div class="mb-3">
-                    <img src="{{ product.image | media_filter }}" alt="Иллюстрация товара"
-                    class="rounded img-with-border" width="320" height="200">
-                </div>
-                <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{product.description | truncatechars:50}}</p>
-                <a href="/product/{{product.pk}}/" class="btn btn-outline-primary w-50 rounded-sm" style="margin-top: 20px;">Подробности</a>
+        <div class="col-md-6 col-lg-3 text-center">
+            <h6 class="text-dark mb-1">{{product.name}}</h6>
+            <h6 class="text-dark mb-1">{{product.price}}$</h6>
+            <div class="mb-3">
+                <img src="{{ product.image | media_filter }}" alt="Иллюстрация товара"
+                     class="rounded img-with-border" width="320" height="200">
             </div>
+            <p class="text-justify" style="max-width: 350px; margin: 0 auto;"> {{product.description | truncatechars:50}}</p>
+            <a href="{% url 'catalog:product' pk=product.pk %}" class="btn btn-outline-primary w-50 rounded-sm"
+               style="margin-top: 20px;">Подробности</a>
+        </div>
         {% endfor %}
 
     </div>

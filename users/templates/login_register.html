@@ -21,7 +21,7 @@
                 <button type="submit" class="btn btn-primary">{{ button_title }}</button>
             {% else %}
                 <button type="submit" class="btn btn-primary">Войти</button>
-                <a class="btn btn-primary" href="/register/">Регистрация</a>
+                <a class="btn btn-primary" href="{% url 'users:register'%}">Регистрация</a>
             {% endif %}
         </div>
     </form>

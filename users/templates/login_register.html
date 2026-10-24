@@ -1,0 +1,32 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Пользователь</title>
+    <link rel="icon" href="{% static 'icons/skypro.ico' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<div class="container mt-5">
+    <h5 class="pricing-header pb-md-5 mx-auto text-center">Добро пожаловать!</h5>
+
+    <form method="post" enctype="multipart/form-data" class="w-100" style="max-width: 400px; margin: 0 auto;">
+        {% csrf_token %}
+        {{ form.as_p }}
+
+        <div class="d-flex justify-content-center gap-2 mt-3">
+            {% if button_title %}
+                <button type="submit" class="btn btn-primary">{{ button_title }}</button>
+            {% else %}
+                <button type="submit" class="btn btn-primary">Войти</button>
+                <a class="btn btn-primary" href="/register/">Регистрация</a>
+            {% endif %}
+        </div>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+[
+{
+    "model": "users.user",
+    "pk": 44,
+    "fields": {
+        "password": "pbkdf2_sha256$600000$oK7VtOBtCLW7KXiqNOIRLX$AriApj5lWRI6863tE9Ua9BL41K57UolQ/a/h3GFYeiY=",
+        "last_login": "2026-10-25T14:58:12.855Z",
+        "is_superuser": false,
+        "first_name": "",
+        "last_name": "",
+        "is_staff": false,
+        "is_active": true,
+        "date_joined": "2026-10-25T14:57:35.404Z",
+        "email": "lr1975@yandex.ru",
+        "avatar": "",
+        "phone_number": "+79118355919",
+        "country": "Россия",
+        "token": "",
+        "groups": [],
+        "user_permissions": []
+    }
+}
+]

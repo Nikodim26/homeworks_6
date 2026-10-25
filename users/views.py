@@ -1,6 +1,7 @@
 import secrets
 
 from django.core.mail import send_mail
+from django.http import HttpResponseRedirect
 from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
@@ -37,7 +38,8 @@ class UserCreateView(CreateView):
             fail_silently=False,
         )
 
-        return super().form_valid(form)
+        self.object = user
+        return HttpResponseRedirect(self.get_success_url())
 
 
 def email_verification(request, token):

@@ -12,7 +12,7 @@ class HomeView(TemplateView):
 class ContactsView(TemplateView):
     template_name = 'contacts.html'
 
-class ProductDetailView(DetailView):
+class ProductDetailView(LoginRequiredMixin,DetailView):
     model = Product
     template_name = 'product.html'
     context_object_name = 'product'

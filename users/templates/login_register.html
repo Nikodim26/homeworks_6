@@ -17,8 +17,8 @@
         {{ form.as_p }}
 
         <div class="d-flex justify-content-center gap-2 mt-3">
-            {% if button_title %}
-                <button type="submit" class="btn btn-primary">{{ button_title }}</button>
+            {% if request.path == '/register/' %}
+                <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
             {% else %}
                 <button type="submit" class="btn btn-primary">Войти</button>
                 <a class="btn btn-primary" href="{% url 'users:register'%}">Регистрация</a>

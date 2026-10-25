@@ -15,3 +15,5 @@ class Command(BaseCommand):
         user.save()
 
 
+        user=User(email='lr1975@yandex.ru')
+        user=User.objects.create(email='lr1975@yandex.ru')

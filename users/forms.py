@@ -23,8 +23,8 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password2'].label = 'Повторите пароль'
         self.fields['password2'].help_text = None
 
-        self.initial['email'] = generate_fake_email()[0]
-        self.initial['phone_number'] = generate_fake_email()[1]
+        self.initial['email'] = generate_fake_email()
+        self.initial['phone_number'] = '+79118355919'
         self.initial['country'] = 'Россия'
         for fild in ['email', 'password1', 'password2', 'avatar', 'phone_number', 'country']:
             self.fields[fild].widget.attrs.update({'class': 'form-control border border-primary', })
@@ -37,5 +37,4 @@ class UserRegisterForm(UserCreationForm):
 def generate_fake_email(domain="example.com"):
     username_length = random.randint(6, 10)
     username = ''.join(random.choices(string.ascii_lowercase + string.digits, k=username_length))
-    phone_number = f'+7{random.randint(1000000,9999999999)}'
-    return [f"{username}@{domain}", phone_number]
+    return f"{username}@{domain}"

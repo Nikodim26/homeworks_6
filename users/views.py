@@ -6,7 +6,6 @@ from django.urls import reverse_lazy, reverse
 from django.views.generic import CreateView
 
 from config import settings
-from config.settings import EMAIL_HOST_USER
 from users.forms import UserRegisterForm
 from users.models import User
 
@@ -25,16 +24,15 @@ class UserCreateView(CreateView):
         user.token = token
         user.save()
 
-        from django.urls import reverse
+        # Правильная генерация ссылки
         url = self.request.build_absolute_uri(
             reverse('users:email-confirm', kwargs={'token': token})
         )
 
-        from django.core.mail import send_mail
         send_mail(
             subject="Подтверждение почты",
             message=f"Привет! Перейди по ссылке, чтобы подтвердить почту: {url}",
-            from_email=self.request.META.get('SERVER_NAME', 'no-reply@example.com'),
+            from_email=settings.EMAIL_HOST_USER,
             recipient_list=[user.email],
             fail_silently=False,
         )

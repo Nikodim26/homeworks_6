@@ -23,9 +23,9 @@ class UserRegisterForm(UserCreationForm):
         self.fields['password2'].label = 'Повторите пароль'
         self.fields['password2'].help_text = None
 
-        self.initial['email'] = generate_fake_email()
-        self.initial['phone_number'] = '+79118355919'
-        self.initial['country'] = 'Россия'
+        # self.initial['email'] = generate_fake_email()
+        # self.initial['phone_number'] = '+79118355919'
+        # self.initial['country'] = 'Россия'
         for fild in ['email', 'password1', 'password2', 'avatar', 'phone_number', 'country']:
             self.fields[fild].widget.attrs.update({'class': 'form-control border border-primary', })
 

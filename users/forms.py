@@ -34,7 +34,7 @@ class UserRegisterForm(UserCreationForm):
         fields = ('email', 'password1', 'password2', 'avatar', 'phone_number', 'country')
 
 
-def generate_fake_email(domain="example.com"):
-    username_length = random.randint(6, 10)
-    username = ''.join(random.choices(string.ascii_lowercase + string.digits, k=username_length))
-    return f"{username}@{domain}"
+# def generate_fake_email(domain="example.com"):
+#     username_length = random.randint(6, 10)
+#     username = ''.join(random.choices(string.ascii_lowercase + string.digits, k=username_length))
+#     return f"{username}@{domain}"

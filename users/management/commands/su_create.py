@@ -13,7 +13,3 @@ class Command(BaseCommand):
         user.is_staff=True
         user.is_superuser=True
         user.save()
-
-
-        user=User(email='lr1975@yandex.ru')
-        user=User.objects.create(email='lr1975@yandex.ru')

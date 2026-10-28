@@ -13,15 +13,23 @@
     <h5 class="my-0 mr-md-auto font-weight-normal">SkyStore</h5>
 
     <nav class="ms-5 d-flex justify-content-between align-items-center w-100">
-        <div>
-            <a class="p-2 btn btn-primary" href="{% url 'catalog:catalogue' %}">Каталог</a>
-            {% if request.path == '/catalogue/' %}
-            <a class="p-2 btn btn-primary" href="{% url 'catalog:product_create'%}">Новый продукт</a>
-            {% endif %}
-        </div>
-        <a class="p-2 btn btn-dark" href="{% url 'users:logout'%}">Выход</a>
+    <div>
+        <a class="p-2 btn btn-primary" href="{% url 'catalog:catalogue' %}">Каталог</a>
+        {% if request.path == '/catalogue/' %}
+            <a class="p-2 btn btn-primary" href="{% url 'catalog:product_create' %}">Новый продукт</a>
+        {% endif %}
+    </div>
+    <form action="{% url 'users:logout' %}" method="post">
+        {% csrf_token %}
+        <button type="submit" class="p-2 btn btn-dark">Выход</button>
+    </form>
     </nav>
+
 </div>
+
+
+
+
 
 {% block content %}{% endblock %}
 

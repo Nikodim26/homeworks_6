@@ -16,9 +16,7 @@
         "phone_number": "+7911835510",
         "country": "Россия",
         "token": null,
-        "groups": [
-            1
-        ],
+        "groups": [],
         "user_permissions": []
     }
 },

@@ -3,11 +3,11 @@ from datetime import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
-from users.models import User
 from .models import Product
 
 class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
+        user = kwargs.pop('user', None)
         super(ProductForm, self).__init__(*args, **kwargs)
 
         self.fields['name'].widget.attrs.update({
@@ -44,11 +44,13 @@ class ProductForm(forms.ModelForm):
             'style': 'height: 150px;'
         })
 
+        if user and not user.has_perm('catalog.can_unpublish_product'):
+            self.fields['publication'].disabled = True
+            self.fields['publication'].help_text = 'Недостаточно прав для изменения'
 
     class Meta:
         model = Product
         fields = '__all__'
-
 
     forbidden_words = [
         "казино", "криптовалюта", "крипта", "биржа",

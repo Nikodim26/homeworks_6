@@ -1,4 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin
+from attr.filters import exclude
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 
@@ -23,6 +24,9 @@ class CatalogueView(ListView):
     template_name = 'catalogue.html'
     context_object_name = 'products'
 
+    def get_queryset(self):
+        return Product.objects.filter(publication=True)
+
 # CUD
 class ProductCreateView(LoginRequiredMixin,CreateView):
     model = Product
@@ -31,11 +35,17 @@ class ProductCreateView(LoginRequiredMixin,CreateView):
     success_url = reverse_lazy("catalog:catalogue")
     context_object_name = 'product'
 
-class ProductUpdateView(LoginRequiredMixin,UpdateView):
+class ProductUpdateView(LoginRequiredMixin,PermissionRequiredMixin,UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'catalog_create_update_form.html'
     context_object_name = 'product'
+
+    permission_required = 'catalog.can_unpublish_product'  # право на изменение публикации
+
+    def form_valid(self, form):
+        form.instance.publication = self.object.publication
+        return super().form_valid(form)
 
     def get_success_url(self):
         return self.object.get_absolute_url()

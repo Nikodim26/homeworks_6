@@ -10,6 +10,7 @@ class Product(models.Model):
     created_at = models.DateField(verbose_name='Дата создания')
     updated_at = models.DateField(verbose_name='Дата последнего изменения')
     description = models.TextField(verbose_name="Описание продукта", blank=True, null=True)
+    publication = models.BooleanField(default=False, verbose_name='Опубликовать')
 
     def __str__(self):
         return f'{self.name} {self.price}'
@@ -21,7 +22,9 @@ class Product(models.Model):
         verbose_name = 'товар'
         verbose_name_plural = 'товары'
         ordering = ['name', 'price']
-
+        permissions = [
+            ("can_unpublish_product", "Can unpublish product"),
+        ]
 
 class Category(models.Model):
     name = models.CharField(max_length=100, verbose_name='Наименование')

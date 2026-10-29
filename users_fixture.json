@@ -10,13 +10,15 @@
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2026-10-27T17:49:29.299Z",
+        "date_joined": "2026-10-27T17:49:29Z",
         "email": "Trus@yandex.ru",
         "avatar": "users/image/трус_qosJwWn.png",
         "phone_number": "+7911835510",
         "country": "Россия",
-        "token": "",
-        "groups": [],
+        "token": null,
+        "groups": [
+            1
+        ],
         "user_permissions": []
     }
 },
@@ -31,13 +33,15 @@
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2026-10-27T17:50:25.760Z",
+        "date_joined": "2026-10-27T17:50:25Z",
         "email": "Balbes@mail.ru",
         "avatar": "users/image/балбес_25epvBp.png",
         "phone_number": "+79118355920",
         "country": "Россия",
-        "token": "",
-        "groups": [],
+        "token": null,
+        "groups": [
+            1
+        ],
         "user_permissions": []
     }
 },
@@ -52,13 +56,15 @@
         "last_name": "",
         "is_staff": false,
         "is_active": true,
-        "date_joined": "2026-10-27T17:51:26.949Z",
+        "date_joined": "2026-10-27T17:51:26Z",
         "email": "Byvaliy@gmail.com",
         "avatar": "users/image/бывалый_REMS7Qr.png",
         "phone_number": "+79118355930",
         "country": "Россия",
-        "token": "",
-        "groups": [],
+        "token": null,
+        "groups": [
+            1
+        ],
         "user_permissions": []
     }
 },
@@ -67,16 +73,16 @@
     "pk": 51,
     "fields": {
         "password": "pbkdf2_sha256$1500000$h7P9dLsC1KVuZq0fqNhGzT$isRDeUz9sbgkd7Nq2PhkBQ8LJuvGqX5Sj1/lbEHOzNk=",
-        "last_login": "2026-10-28T16:18:33.387Z",
-        "is_superuser": false,
+        "last_login": "2026-10-28T17:48:10.328Z",
+        "is_superuser": true,
         "first_name": "",
         "last_name": "",
-        "is_staff": false,
+        "is_staff": true,
         "is_active": true,
         "date_joined": "2026-10-28T16:17:23.164Z",
         "email": "lr1975@yandex.ru",
         "avatar": "users/image/avatar_YYLzdDy.jpg",
-        "phone_number": "89118355919",
+        "phone_number": "+79118355919",
         "country": "Россия",
         "token": "",
         "groups": [],

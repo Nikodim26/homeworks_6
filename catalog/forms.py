@@ -3,6 +3,7 @@ from datetime import datetime
 from django import forms
 from django.core.exceptions import ValidationError
 
+from users.models import User
 from .models import Product
 
 class ProductForm(forms.ModelForm):
@@ -43,9 +44,11 @@ class ProductForm(forms.ModelForm):
             'style': 'height: 150px;'
         })
 
+
     class Meta:
         model = Product
         fields = '__all__'
+
 
     forbidden_words = [
         "казино", "криптовалюта", "крипта", "биржа",

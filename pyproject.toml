@@ -11,7 +11,7 @@ dependencies = [
     "pillow (>=12.3.0,<=13.0.0)",
     "psycopg2-binary (>=2.9.13,<3.0.0)",
     "ipython (>=9.17.1,<10.0.0)",
-    "django (==6.0.9)",
+    "django (==6.1.2)",
 ]
 
 

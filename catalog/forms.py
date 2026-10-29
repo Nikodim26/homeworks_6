@@ -5,6 +5,7 @@ from django.core.exceptions import ValidationError
 
 from .models import Product
 
+
 class ProductForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
@@ -42,6 +43,10 @@ class ProductForm(forms.ModelForm):
             'class': 'form-control border border-warning bg-success p-2 text-dark bg-opacity-25',
             'placeholder': 'Опишите продукт',
             'style': 'height: 150px;'
+        })
+
+        self.fields['publication'].widget.attrs.update({
+            'class': "form-check-input",
         })
 
         if user and not user.has_perm('catalog.can_unpublish_product'):

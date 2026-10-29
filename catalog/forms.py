@@ -46,7 +46,7 @@ class ProductForm(forms.ModelForm):
 
         if user and not user.has_perm('catalog.can_unpublish_product'):
             self.fields['publication'].disabled = True
-            self.fields['publication'].help_text = 'Недостаточно прав для изменения'
+            self.fields['publication'].help_text = 'Отмена публикации доступна только модераторам'
 
     class Meta:
         model = Product

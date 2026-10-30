@@ -66,7 +66,7 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
     template_name = 'catalog_delete_form.html'
     success_url = reverse_lazy("catalog:catalogue")
     context_object_name = 'product'
-    permission_required = 'catalog.can_delete_product'
+    permission_required = 'catalog.delete_product'
 
     def handle_no_permission(self):
         return render(

@@ -10,7 +10,7 @@ class Product(models.Model):
     created_at = models.DateField(verbose_name='Дата создания')
     updated_at = models.DateField(verbose_name='Дата последнего изменения')
     description = models.TextField(verbose_name="Описание продукта", blank=True, null=True)
-    publication = models.BooleanField(default=False, verbose_name='Опубликовать')
+    publication = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.name} {self.price}'

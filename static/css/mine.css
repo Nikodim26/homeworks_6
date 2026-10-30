@@ -1,0 +1,3 @@
+.custom-placeholder::placeholder {
+    color: #c4c9cf !important; /* цвет как у text muted в Bootstrap */
+}

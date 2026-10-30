@@ -39,6 +39,11 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
     success_url = reverse_lazy("catalog:catalogue")
     context_object_name = 'product'
 
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['verbose_name'] = 'Опубликовать'
+        return kwargs
+
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
@@ -49,6 +54,7 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
         kwargs['user'] = self.request.user
+        kwargs['verbose_name'] = 'Опубликован'
         return kwargs
 
     def get_success_url(self):

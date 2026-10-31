@@ -54,21 +54,18 @@ class ProductForm(forms.ModelForm):
                 field.disabled = True
 
         self.fields['publication'].disabled = False
+
         self.fields['publication'].widget.attrs.update({
             'class': "form-check-input",
             'style': "border: 1px solid #ccc;",
         })
 
+        self.fields['publication'].label = verbose_name
 
-
-
-
-        # self.fields['publication'].label = verbose_name
-        #
-        # if user and not user.has_perm('catalog.can_unpublish_product'):
-        #     if not user.id == self.instance.owner_id:
-        #         self.fields['publication'].disabled = True
-        #         self.fields['publication'].help_text = 'Отмена публикации доступна только модераторам'
+        if user and not user.has_perm('catalog.can_unpublish_product'):
+            if not user.id == self.instance.owner_id:
+                self.fields['publication'].disabled = True
+                self.fields['publication'].help_text = 'Отмена публикации доступна только модераторам'
 
 
     class Meta:

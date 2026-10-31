@@ -51,7 +51,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin, UpdateView):
+class ProductUpdateView(LoginRequiredMixin,UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'catalog_create_update_form.html'
@@ -63,40 +63,37 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
         kwargs['verbose_name'] = 'Опубликован'
         return kwargs
 
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+
+        if not (self.object.owner == request.user or request.user.is_superuser
+                or request.user.has_perm('catalog.can_unpublish_product')):
+
+            return render(request, 'permission_denied.html', {
+                'message': 'Не тобой создано - не тебе и изменять',
+                'product': self.object,
+            })
+
+        return super().dispatch(request, *args, **kwargs)
+
     def get_success_url(self):
         return self.object.get_absolute_url()
 
-    # def dispatch(self, request, *args, **kwargs):
-    #     self.object = self.get_object()
-    #     if not (self.object.owner == request.user or request.user.is_superuser):
-    #         return render(request, 'permission_denied.html', {
-    #             'message': 'Не тобой создано - не тебе и изменять',
-    #             'product': self.object,
-    #         })
-    #     return super().dispatch(request, *args, **kwargs)
 
-
-
-class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     template_name = 'catalog_delete_form.html'
     success_url = reverse_lazy("catalog:catalogue")
     context_object_name = 'product'
-    permission_required = 'catalog.delete_product'
 
-    def handle_no_permission(self):
-        return render(
-            self.request,
-            'permission_denied.html',
-            {'message': 'Удаление разрешено только модераторам.'},
-            status=403,
-        )
+    def dispatch(self, request, *args, **kwargs):
+        self.object = self.get_object()
+        if not (self.object.owner == request.user or request.user.is_superuser
+                or request.user.has_perm('catalog.delete_product')):
 
-    # def dispatch(self, request, *args, **kwargs):
-    #     self.object = self.get_object()
-    #     if not (self.object.owner == request.user or request.user.is_superuser):
-    #         return render(request, 'permission_denied.html', {
-    #             'message': 'Не тобой создано - не тебе и удалять',
-    #             'product': self.object,
-    #         })
-    #     return super().dispatch(request, *args, **kwargs)
+            return render(request, 'permission_denied.html', {
+                'message': 'Не тобой создано - не тебе и удалять',
+                'product': self.object,
+            })
+
+        return super().dispatch(request, *args, **kwargs)

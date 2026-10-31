@@ -26,8 +26,10 @@
             </div>
 
             <p> {{product.description}}</p>
+            {% if product.owner_id == user.id %}
             <a class="p-2 btn btn-outline-warning btn-sm" href="{% url 'catalog:product_edit' pk=product.pk %}">Изменить</a>
             <a class="p-2 btn btn-outline-danger btn-sm" href="{% url 'catalog:product_delete' pk=product.pk %}">Удалить</a>
+            {% endif %}
         </div>
     </div>
 </div>

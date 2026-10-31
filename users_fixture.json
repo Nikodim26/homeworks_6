@@ -3,8 +3,8 @@
     "model": "users.user",
     "pk": 46,
     "fields": {
-        "password": "pbkdf2_sha256$600000$UBACepoSPGmMZwi5vgA1HX$Phy1pKk8PDxwOGy8dGv6FCF1BKfq7zm8ezVTjhbumBM=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$1500000$WNWXjcXOyrP3WBHyCmc27i$hQ3VdWaCMUXIWmOm80oyxLrTKUUJdxiET82JiIr28/8=",
+        "last_login": "2026-10-31T15:08:39.643Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -24,8 +24,8 @@
     "model": "users.user",
     "pk": 47,
     "fields": {
-        "password": "pbkdf2_sha256$600000$UnsRoyA7afoAgrJWV3CeJj$bpas1m5/7Q605tnfyPIQnCCGZ+xibG6rEfd1INPRvO0=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$1500000$pRFVXEsiGrhdoVmRH2RUdl$cJeFSJavrJgeHBh2oi1ZuAvE7PO581UMqajfH2MpmMQ=",
+        "last_login": "2026-10-31T15:09:18.622Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -37,9 +37,7 @@
         "phone_number": "+79118355920",
         "country": "Россия",
         "token": null,
-        "groups": [
-            1
-        ],
+        "groups": [],
         "user_permissions": []
     }
 },
@@ -47,8 +45,8 @@
     "model": "users.user",
     "pk": 48,
     "fields": {
-        "password": "pbkdf2_sha256$600000$0E0sw11vhgjmZqKEkCq6Yu$5nIc3CSFDI47xIqdk6+npcob42aMfcQKzSOjrNH0fWs=",
-        "last_login": null,
+        "password": "pbkdf2_sha256$1500000$duaCwSDlRVn70ml9tcXQDL$ajE5IvJgf1v5jGkwHyOuJrJMgZLrEScIcpYEUvDWqbM=",
+        "last_login": "2026-10-31T15:09:49.886Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -71,7 +69,7 @@
     "pk": 51,
     "fields": {
         "password": "pbkdf2_sha256$1500000$h7P9dLsC1KVuZq0fqNhGzT$isRDeUz9sbgkd7Nq2PhkBQ8LJuvGqX5Sj1/lbEHOzNk=",
-        "last_login": "2026-10-28T17:48:10.328Z",
+        "last_login": "2026-10-31T15:08:05.668Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",

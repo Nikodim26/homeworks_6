@@ -44,6 +44,12 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         kwargs['verbose_name'] = 'Опубликовать'
         return kwargs
 
+    def form_valid(self, form):
+        product = form.save(commit=False)
+        product.owner = self.request.user
+        product.save()
+        return super().form_valid(form)
+
 
 class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
@@ -60,6 +66,16 @@ class ProductUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         return self.object.get_absolute_url()
 
+    # def dispatch(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     if not (self.object.owner == request.user or request.user.is_superuser):
+    #         return render(request, 'permission_denied.html', {
+    #             'message': 'Не тобой создано - не тебе и изменять',
+    #             'product': self.object,
+    #         })
+    #     return super().dispatch(request, *args, **kwargs)
+
+
 
 class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView):
     model = Product
@@ -75,3 +91,12 @@ class ProductDeleteView(LoginRequiredMixin, PermissionRequiredMixin, DeleteView)
             {'message': 'Удаление разрешено только модераторам.'},
             status=403,
         )
+
+    # def dispatch(self, request, *args, **kwargs):
+    #     self.object = self.get_object()
+    #     if not (self.object.owner == request.user or request.user.is_superuser):
+    #         return render(request, 'permission_denied.html', {
+    #             'message': 'Не тобой создано - не тебе и удалять',
+    #             'product': self.object,
+    #         })
+    #     return super().dispatch(request, *args, **kwargs)

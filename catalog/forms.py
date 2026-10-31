@@ -27,40 +27,54 @@ class ProductForm(forms.ModelForm):
 
         self.fields['price'].widget.attrs.update({
             'class': 'form-control border border-info custom-placeholder',
-            'placeholder': '0.00 $'
+            'placeholder': '0.00 $',
         })
 
         self.fields['created_at'].widget.attrs.update({
             'class': 'form-control border border-info custom-placeholder',
-            'placeholder': f'{datetime.now().date()}'
+            'placeholder': f'{datetime.now().date()}',
         })
 
         self.fields['updated_at'].widget.attrs.update({
             'class': 'form-control border border-info custom-placeholder',
-            'placeholder': f'{datetime.now().date()}'
+            'placeholder': f'{datetime.now().date()}',
         })
 
         self.fields['description'].widget.attrs.update({
             'class': 'form-control border border-warning bg-success p-2 text-dark bg-opacity-25 custom-placeholder',
-            'placeholder': 'Опишите продукт',
+            'placeholder': f'Опишите продукт',
             'style': 'height: 150px;'
         })
 
+        if user and user.has_perm('catalog.can_unpublish_product') and not user.is_superuser:
+            for field in self.fields.values():
+                field.widget.attrs.update({
+                    'class': 'form-control field-readonly-view',
+                })
+                field.disabled = True
+
+        self.fields['publication'].disabled = False
         self.fields['publication'].widget.attrs.update({
             'class': "form-check-input",
             'style': "border: 1px solid #ccc;",
-
         })
 
-        self.fields['publication'].label = verbose_name
 
-        if user and not user.has_perm('catalog.can_unpublish_product'):
-            self.fields['publication'].disabled = True
-            self.fields['publication'].help_text = 'Отмена публикации доступна только модераторам'
+
+
+
+        # self.fields['publication'].label = verbose_name
+        #
+        # if user and not user.has_perm('catalog.can_unpublish_product'):
+        #     if not user.id == self.instance.owner_id:
+        #         self.fields['publication'].disabled = True
+        #         self.fields['publication'].help_text = 'Отмена публикации доступна только модераторам'
+
 
     class Meta:
         model = Product
-        fields = '__all__'
+        exclude = ['owner']
+
 
     forbidden_words = [
         "казино", "криптовалюта", "крипта", "биржа",

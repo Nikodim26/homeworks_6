@@ -11,6 +11,7 @@ class Product(models.Model):
     updated_at = models.DateField(verbose_name='Дата последнего изменения')
     description = models.TextField(verbose_name="Описание продукта", blank=True, null=True)
     publication = models.BooleanField(default=False)
+    owner=models.ForeignKey('users.User', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return f'{self.name} {self.price}'

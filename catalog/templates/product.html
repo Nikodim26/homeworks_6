@@ -26,11 +26,18 @@
             </div>
 
             <p> {{product.description}}</p>
-            {% if product.owner_id == user.id %}
+            {% if product.owner_id == user.id or perms.catalog.can_unpublish_product %}
                 <a class="p-2 btn btn-outline-warning btn-sm"
-                   href="{% url 'catalog:product_edit' pk=product.pk %}">Изменить</a>
+                   href="{% url 'catalog:product_edit' pk=product.pk %}">
+                    Изменить
+                </a>
+            {% endif %}
+
+            {% if product.owner_id == user.id or perms.catalog.delete_product %}
                 <a class="p-2 btn btn-outline-danger btn-sm"
-                   href="{% url 'catalog:product_delete' pk=product.pk %}">Удалить</a>
+                   href="{% url 'catalog:product_delete' pk=product.pk %}">
+                    Удалить
+                </a>
             {% endif %}
         </div>
     </div>

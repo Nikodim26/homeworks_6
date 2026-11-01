@@ -1,4 +1,5 @@
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.exceptions import PermissionDenied
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
@@ -51,7 +52,7 @@ class ProductCreateView(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
-class ProductUpdateView(LoginRequiredMixin,UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
     template_name = 'catalog_create_update_form.html'
@@ -65,13 +66,15 @@ class ProductUpdateView(LoginRequiredMixin,UpdateView):
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
+        is_owner = self.object.owner_id == request.user.id
+        is_moderator = request.user.has_perm("catalog.can_unpublish_product")
 
-        if not (self.object.owner == request.user or request.user.is_superuser
-                or request.user.has_perm('catalog.can_unpublish_product')):
-
+        if not (is_owner or is_moderator or request.user.is_superuser):
+            # raise PermissionDenied("Изменять продукт может только владелец или модератор")
             return render(request, 'permission_denied.html', {
-                'message': 'Не тобой создано - не тебе и изменять',
-                'product': self.object,
+                'message': 'Удалять продукт может только владелец или модератор.',
+                'error': 'Ошибка 403 Forbidden («Запрещено»)'
+
             })
 
         return super().dispatch(request, *args, **kwargs)
@@ -88,12 +91,14 @@ class ProductDeleteView(LoginRequiredMixin, DeleteView):
 
     def dispatch(self, request, *args, **kwargs):
         self.object = self.get_object()
-        if not (self.object.owner == request.user or request.user.is_superuser
-                or request.user.has_perm('catalog.delete_product')):
+        is_owner = self.object.owner_id == request.user.id
+        is_moderator = request.user.has_perm("catalog.delete_product")
 
+        if not (is_owner or is_moderator or request.user.is_superuser):
+            # raise PermissionDenied("Изменять продукт может только владелец или модератор")
             return render(request, 'permission_denied.html', {
-                'message': 'Не тобой создано - не тебе и удалять',
-                'product': self.object,
+                'message': 'Удалять продукт может только владелец или модератор.',
+                'error': 'Ошибка 403 Forbidden («Запрещено»)'
             })
 
         return super().dispatch(request, *args, **kwargs)

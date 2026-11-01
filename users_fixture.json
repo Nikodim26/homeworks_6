@@ -4,7 +4,7 @@
     "pk": 46,
     "fields": {
         "password": "pbkdf2_sha256$1500000$WNWXjcXOyrP3WBHyCmc27i$hQ3VdWaCMUXIWmOm80oyxLrTKUUJdxiET82JiIr28/8=",
-        "last_login": "2026-10-31T15:08:39.643Z",
+        "last_login": "2026-11-01T10:45:33.567Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -25,7 +25,7 @@
     "pk": 47,
     "fields": {
         "password": "pbkdf2_sha256$1500000$pRFVXEsiGrhdoVmRH2RUdl$cJeFSJavrJgeHBh2oi1ZuAvE7PO581UMqajfH2MpmMQ=",
-        "last_login": "2026-10-31T15:09:18.622Z",
+        "last_login": "2026-11-01T10:42:33.919Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -46,7 +46,7 @@
     "pk": 48,
     "fields": {
         "password": "pbkdf2_sha256$1500000$duaCwSDlRVn70ml9tcXQDL$ajE5IvJgf1v5jGkwHyOuJrJMgZLrEScIcpYEUvDWqbM=",
-        "last_login": "2026-10-31T15:09:49.886Z",
+        "last_login": "2026-11-01T10:43:05.989Z",
         "is_superuser": false,
         "first_name": "",
         "last_name": "",
@@ -59,7 +59,7 @@
         "country": "Россия",
         "token": null,
         "groups": [
-            1
+            3
         ],
         "user_permissions": []
     }
@@ -69,7 +69,7 @@
     "pk": 51,
     "fields": {
         "password": "pbkdf2_sha256$1500000$h7P9dLsC1KVuZq0fqNhGzT$isRDeUz9sbgkd7Nq2PhkBQ8LJuvGqX5Sj1/lbEHOzNk=",
-        "last_login": "2026-10-31T15:08:05.668Z",
+        "last_login": "2026-11-01T10:41:27.922Z",
         "is_superuser": true,
         "first_name": "",
         "last_name": "",
